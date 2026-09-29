@@ -1,0 +1,26 @@
+--- Trace Metadata & Attributes (Trace ID: 6ee4881cef348d485edb0dde38294d44) ---
+
+Metadata Fields Attached via propagate_attributes():
+{
+  "correlation_id": "req-39959b72",
+  "feature": "monitoring",
+  "model": "claude-sonnet-4-5",
+  "environment": "dev",
+  "user_id_hash": "4570299f37e2",
+  "session_id": "k4-l3a-challenge-s04",
+  "tags": [
+    "lab",
+    "monitoring",
+    "claude-sonnet-4-5"
+  ],
+  "prompt_name": "day13-chat",
+  "prompt_version": "local-v1",
+  "prompt_label": "production",
+  "doc_count": 1,
+  "tokens_in": 36,
+  "tokens_out": 144,
+  "total_cost_usd": 0.002268,
+  "raw_pii_present": false
+}
+
+[+] Correlation Link: Trace metadata.correlation_id ('req-39959b72') == Log correlation_id ('req-39959b72')

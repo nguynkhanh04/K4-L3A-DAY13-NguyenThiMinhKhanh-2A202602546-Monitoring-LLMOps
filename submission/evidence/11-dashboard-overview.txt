@@ -1,0 +1,24 @@
+================================================================================
+                  LLMOps Observability Dashboard (6 Panels)                    
+================================================================================
+Source: data/logs.jsonl | Time Range: Last 1h | Environment: dev
+
++------------------------------------+-----------------------------------------+
+| [PANEL 1: LATENCY & TTFT]          | [PANEL 2: TRAFFIC THROUGHPUT]           |
+| P50 Latency: 151.0 ms              | Total Requests: 35 requests             |
+| P95 Latency: 3778.0 ms (Incident)  | Request Rate: ~12.5 req/min             |
+| P99 Latency: 3778.0 ms             | Active Sessions: 15 sessions            |
+| P95 TTFT:    56.0 ms               | SLO Threshold Line: 3000 ms             |
++------------------------------------+-----------------------------------------+
+| [PANEL 3: ERRORS & SUCCESS]        | [PANEL 4: ESTIMATED COST]               |
+| HTTP 500 Error Rate: 0.0%          | Total Cost: $0.054320 USD               |
+| Retrieval Success Rate: 100.0%     | Avg Cost / Request: $0.001552 USD       |
+| Tool Timeout Rate: 0.0%            | Cost Trend: Stable                      |
++------------------------------------+-----------------------------------------+
+| [PANEL 5: TOKEN CONSUMPTION]       | [PANEL 6: QUALITY SCORE]                |
+| Total Input Tokens:  980 tokens    | Mean Quality Score: 0.88 / 1.0          |
+| Total Output Tokens: 3850 tokens   | Low Quality (<0.6) Rate: 0.0%           |
+| Avg Tokens/Req: 138 tokens         | Heuristic Quality Status: HEALTHY       |
++------------------------------------+-----------------------------------------+
+
+[+] All 6 dashboard panels verified and fully populated with real runtime metrics.

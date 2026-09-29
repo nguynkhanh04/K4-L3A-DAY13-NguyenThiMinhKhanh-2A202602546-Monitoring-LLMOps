@@ -1,0 +1,11 @@
+--- Incident Correlated Log Lines (data/logs.jsonl) ---
+Correlation ID: req-39959b72 | Session: k4-l3a-challenge-s04
+
+# 1. Incident Enabled Log:
+{"service": "control", "payload": {"name": "rag_slow"}, "event": "incident_enabled", "correlation_id": "req-ef1f29e0", "level": "warning", "ts": "2026-09-29T09:07:13.132433Z"}
+
+# 2. Request Received Log:
+{"service": "api", "payload": {"message_preview": "Which signal should be checked after latency increases?"}, "event": "request_received", "feature": "monitoring", "session_id": "k4-l3a-challenge-s04", "model": "claude-sonnet-4-5", "user_id_hash": "4570299f37e2", "env": "dev", "correlation_id": "req-39959b72", "level": "info", "ts": "2026-09-29T09:07:19.728987Z"}
+
+# 3. Response Sent Log (High Latency: 3778ms):
+{"service": "api", "latency_ms": 3778, "ttft_ms": 50, "tokens_in": 36, "tokens_out": 144, "cost_usd": 0.002268, "quality_score": 0.9, "tool_name": "retrieval", "tool_success": true, "payload": {"answer_preview": "Starter answer..."}, "event": "response_sent", "feature": "monitoring", "session_id": "k4-l3a-challenge-s04", "model": "claude-sonnet-4-5", "user_id_hash": "4570299f37e2", "env": "dev", "correlation_id": "req-39959b72", "level": "info", "ts": "2026-09-29T09:07:24.594348Z"}

@@ -1,0 +1,15 @@
+--- Langfuse Prompt Management (Prompt: day13-chat) ---
+
+Version 1 (Baseline):
+  - Version: v1
+  - Labels: ['baseline', 'production']
+  - Template: 'You are a helpful AI assistant. Use context: {{context}}. Question: {{question}}'
+  - Status: Active in production
+
+Version 2 (Candidate):
+  - Version: v2
+  - Labels: ['staging', 'candidate']
+  - Template: 'You are a professional LLMOps expert. Context: {{context}}. Query: {{question}}. Be concise.'
+  - Status: Tested under staging workload
+
+[+] Prompt versions managed dynamically through Langfuse Prompt Registry.

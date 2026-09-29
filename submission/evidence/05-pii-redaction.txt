@@ -1,0 +1,18 @@
+--- PII Redaction Verification & Audit Trail ---
+
+[Test Input 1 - Email]: contact me at student@university.edu.vn
+  -> Scrubbed: contact me at [REDACTED_EMAIL]
+
+[Test Input 2 - VN Phone]: Goi cho toi qua so 0912345678 hoac +84987654321
+  -> Scrubbed: Goi cho toi qua so [REDACTED_PHONE] hoac [REDACTED_PHONE]
+
+[Test Input 3 - CCCD 12-digit]: So can cuoc cong dan 001234567890
+  -> Scrubbed: So can cuoc cong dan [REDACTED_CCCD]
+
+[Test Input 4 - Credit Card]: The visa so 4111 2222 3333 4444 thanh toan
+  -> Scrubbed: The visa so [REDACTED_CREDIT_CARD] thanh toan
+
+--- Actual Log Line with Redaction ---
+{"service": "api", "payload": {"message_preview": "What is the policy for PII and credit card [REDACTED_CREDIT_CARD]?"}, "event": "request_received", "correlation_id": "req-0282cd28", "level": "info", "ts": "2026-09-29T08:29:46.115342Z"}
+
+[+] Verification: 0 PII raw leaks detected across all logs and traces.

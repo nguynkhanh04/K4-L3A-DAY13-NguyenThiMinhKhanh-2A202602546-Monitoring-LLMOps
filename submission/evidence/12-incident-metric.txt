@@ -1,0 +1,11 @@
+--- Incident Metric Spike: Challenge day13-k4-l3a-monitoring-llmops-v1 ---
+Incident: rag_slow | Affected Feature: monitoring | Latency Threshold: 2000 ms
+
+Metric Degradation Timeline (2026-09-29T09:07:13Z - 2026-09-29T09:07:36Z):
+  - Baseline Latency P95: 151 ms  (Normal)
+  - Incident Latency P50: 2919 ms (CRITICAL DEGRADATION)
+  - Incident Latency P95: 3778 ms (CRITICAL DEGRADATION - VIOLATES SLO 3000ms)
+  - Incident TTFT P95:    56 ms   (Normal - LLM generation not affected)
+  - HTTP Error Rate:      0.0%    (Requests succeeded but heavily delayed)
+
+[!] Metric Alert Triggered: HighLatencyP95 (Latency P95 = 3778ms > 3000ms)

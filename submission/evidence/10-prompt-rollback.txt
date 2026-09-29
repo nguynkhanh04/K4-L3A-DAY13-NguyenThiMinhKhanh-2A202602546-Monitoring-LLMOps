@@ -1,0 +1,13 @@
+--- Prompt Promotion & Rollback Workflow ---
+
+Step 1 [Baseline]: v1 is labelled 'production' -> Serving live traffic with standard latency.
+Step 2 [Promote]: Promoted v2 to 'production' -> Monitored candidate performance.
+Step 3 [Evaluation]: Candidate v2 exhibited quality variance on specific edge queries.
+Step 4 [Rollback Action]: Re-assigned label 'production' back to v1 in Langfuse UI.
+Step 5 [Verification]: Application immediately picked up v1 without service restart.
+
+Trace Comparison:
+  - v1 Production Trace: e6d012b9d1323cf0e7c2f125c6e8da53 (Prompt: day13-chat:v1)
+  - v2 Candidate Trace:  d42548b173ecd939056feaf39a9092a0 (Prompt: day13-chat:v2)
+
+[+] Rollback executed smoothly with 0 downtime and verified prompt version binding.

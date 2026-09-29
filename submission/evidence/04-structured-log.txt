@@ -1,0 +1,43 @@
+--- Sample Structured Log Records (data/logs.jsonl) ---
+
+# Event 1: request_received
+{
+  "service": "api",
+  "event": "request_received",
+  "ts": "2026-09-29T08:29:45.959297Z",
+  "level": "info",
+  "correlation_id": "req-a123e4a3",
+  "user_id_hash": "2f015d970c0b",
+  "session_id": "s08",
+  "feature": "qa",
+  "model": "claude-sonnet-4-5",
+  "env": "dev",
+  "payload": {
+    "message_preview": "How do I debug tail latency?"
+  }
+}
+
+# Event 2: response_sent
+{
+  "service": "api",
+  "event": "response_sent",
+  "ts": "2026-09-29T08:29:46.111400Z",
+  "level": "info",
+  "correlation_id": "req-a123e4a3",
+  "user_id_hash": "2f015d970c0b",
+  "session_id": "s08",
+  "feature": "qa",
+  "model": "claude-sonnet-4-5",
+  "env": "dev",
+  "latency_ms": 150,
+  "ttft_ms": 50,
+  "tokens_in": 27,
+  "tokens_out": 122,
+  "cost_usd": 0.001911,
+  "quality_score": 0.9,
+  "tool_name": "retrieval",
+  "tool_success": true,
+  "payload": {
+    "answer_preview": "Starter answer. You should improve this output logic..."
+  }
+}

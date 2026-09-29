@@ -1,0 +1,13 @@
+--- Trace Waterfall Hierarchy (Trace ID: 6ee4881cef348d485edb0dde38294d44) ---
+Project: day13-k4-l3a-2A202602546 | Environment: dev | Session: k4-l3a-challenge-s04
+
+└── [AGENT] lab-agent-run (ID: 7f8ed6233195149a, Latency: 3.779s, Root: True)
+    ├── [RETRIEVER] retrieval (ID: bf2e2e4db5de7e50, Latency: 2.502s, Parent: 7f8ed6233195149a)
+    └── [GENERATION] llm-generation (ID: d815003e3d587d69, Latency: 0.151s, Parent: 7f8ed6233195149a)
+
+Timeline Execution Waterfall:
+[0.000s] +------------------------------------------------------------+ 3.779s (lab-agent-run)
+[0.001s]   +---------------------------------------+ 2.502s (retrieval - BOTTLENECK)
+[2.505s]                                             +--+ 0.151s (llm-generation)
+
+[+] Parent-Child hierarchy strictly maintained with distinct retriever and generation spans.

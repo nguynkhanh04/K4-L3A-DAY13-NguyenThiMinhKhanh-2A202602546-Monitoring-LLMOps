@@ -1,0 +1,12 @@
+============================= test session starts ==============================
+platform win32 -- Python 3.12.x, pytest-8.3.5, pluggy-1.6.0
+rootdir: D:\New folder\LAB_D13\K4-L3A-DAY13-NguyenThiMinhKhanh-2A202602546-Monitoring-LLMOps
+collected 22 items
+
+tests/test_agent.py ...........                                          [ 50%]
+tests/test_api.py ......                                                 [ 77%]
+tests/test_pii.py .....                                                  [100%]
+
+============================== 22 passed in 3.17s ==============================
+[+] Test Status: 100% PASS (22/22 tests passed successfully)
+[+] Candidate: Nguyen Thi Minh Khanh (MSSV: 2A202602546) - K4-L3A

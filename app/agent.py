@@ -51,7 +51,7 @@ class LabAgent:
             },
         ):
             started = time.perf_counter()
-            docs = retrieve(message)
+            docs = self._retrieve(message)
             prompt = resolve_prompt(
                 langfuse_client,
                 feature=feature,
@@ -71,10 +71,7 @@ class LabAgent:
                 },
                 version=prompt.version,
             )
-            # TODO (CP2): instrument retrieve() and FakeLLM.generate() as child
-            # observations. The nested generation must receive prompt, usage and cost.
-            with propagate_attributes(prompt=prompt.managed_prompt):
-                response = self.llm.generate(prompt.text)
+            response = self._generate(prompt.text, prompt.managed_prompt)
             quality_score = self._heuristic_quality(message, response.text, docs)
             latency_ms = int((time.perf_counter() - started) * 1000)
             cost_usd = self._estimate_cost(response.usage.input_tokens, response.usage.output_tokens)
@@ -98,6 +95,30 @@ class LabAgent:
             quality_score=quality_score,
         )
 
+    @observe(name="retrieval", as_type="retriever")
+    def _retrieve(self, message: str) -> list[str]:
+        return retrieve(message)
+
+    @observe(name="llm-generation", as_type="generation")
+    def _generate(self, prompt_text: str, managed_prompt: Any):
+        with propagate_attributes(prompt=managed_prompt):
+            response = self.llm.generate(prompt_text)
+        langfuse_client = get_langfuse_client()
+        if hasattr(langfuse_client, "update_current_generation"):
+            cost_usd = self._estimate_cost(response.usage.input_tokens, response.usage.output_tokens)
+            langfuse_client.update_current_generation(
+                model=self.model,
+                input=prompt_text,
+                output=response.text,
+                usage_details={
+                    "input_tokens": response.usage.input_tokens,
+                    "output_tokens": response.usage.output_tokens,
+                },
+                cost_details={"total_cost": cost_usd},
+                prompt=managed_prompt,
+            )
+        return response
+
     def _estimate_cost(self, tokens_in: int, tokens_out: int) -> float:
         input_cost = (tokens_in / 1_000_000) * 3
         output_cost = (tokens_out / 1_000_000) * 15
@@ -114,3 +135,4 @@ class LabAgent:
         if "[REDACTED" in answer:
             score -= 0.2
         return round(max(0.0, min(1.0, score)), 2)
+

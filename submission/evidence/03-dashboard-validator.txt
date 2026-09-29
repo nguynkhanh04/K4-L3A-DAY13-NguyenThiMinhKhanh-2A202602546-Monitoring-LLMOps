@@ -1,0 +1,10 @@
+--- Dashboard Contract Verification ---
+[+] Panel 1: latency (P50, P95, P99, TTFT) -> VALID
+[+] Panel 2: traffic (Request rate, throughput) -> VALID
+[+] Panel 3: errors (Error rate, Retrieval success rate) -> VALID
+[+] Panel 4: cost (Cumulative cost, Cost/req) -> VALID
+[+] Panel 5: tokens (Input tokens, Output tokens) -> VALID
+[+] Panel 6: quality (Response quality heuristic) -> VALID
+
+HỢP LỆ: 6/6 panel có trong dashboard contract.
+[+] Result: Contract check 6/6 panels fully compliant
